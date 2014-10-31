@@ -1,0 +1,23 @@
+{
+  "name": "guidesource",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Fernanda Silva",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.9.1",
+    "cloudinary": "^1.0.12",
+    "cors": "^2.5.0",
+    "express": "^4.10.0",
+    "express-session": "^1.9.1",
+    "moment": "^2.8.3",
+    "mongoose": "^3.8.18",
+    "passport": "^0.2.1",
+    "passport-facebook": "^1.0.3"
+  }
+}
