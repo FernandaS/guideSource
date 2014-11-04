@@ -2,11 +2,11 @@ var app = angular.module('guide_source');
 
 app.service('myService', function($http, $q){
 
-this.getGuiders = function(search){
-	console.log(search)
+this.getGuiders = function(area){
+	
 	return $http({
 		method: 'GET',
-		url: 'http://localhost:3333/guiders/search/' + search,
+		url: 'http://localhost:3333/guiders/' + area
 	}).then(function(result){
 		return result.data
 	})
@@ -17,9 +17,22 @@ this.getGuiderById = function(id){
 		method: 'GET',
 		url: 'http://localhost:3333/guiders/' + id	
 	}).then(function(result){
+		console.log(result.data);
 			return result.data
 	});
 };
+
+this.getAreas = function(){
+	return $http({
+		method: 'GET',
+		url: '/areas'
+	}).then(function(result){
+		console.log(result.data);
+		return result.data
+	})
+}
+
+
 
 });
 
@@ -42,5 +55,11 @@ app.service('userService', function($http, $q){
 		return _currentUser;
 	}
 
+	// this.LogoutCustomer = function(){
+	// 	$http({
+	// 		method: 'GET',
+	// 		url: '/logout'
+	// 	}).then
+	// }
 
 });

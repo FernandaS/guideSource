@@ -6,15 +6,25 @@ app.config(['$routeProvider', function($routeProvider){
  $routeProvider
  	.when('/', {
  		templateUrl: 'views/home.html',
- 		controller: 'mainCtrl'
+ 		controller: 'mainCtrl',
+ 		resolve: {
+ 			areas: function(myService){
+ 				return myService.getAreas();
+ 			}
+ 		}
  	})
  	.when('/profile', {
  		templateUrl: 'views/profile.html',
  		controller: 'profileCtrl'
  	})
- 	.when('/guideList',{
+ 	.when('/guideList/:area',{
  		templateUrl: 'views/guides_list.html',
- 		controller: 'guides_listCtrl'
+ 		controller: 'guides_listCtrl',
+ 		resolve: {
+ 			guideList: function(myService, $route){
+ 				return myService.getGuiders($route.current.params.area);
+ 			}
+ 		}
  	})
  	.when('/login',{
  		templateUrl: 'views/signUp.html',
@@ -26,6 +36,7 @@ app.config(['$routeProvider', function($routeProvider){
  		resolve: {
  			profileRef: function(myService, $route){
  				return myService.getGuiderById($route.current.params.guiderId);
+ 				
  			}
  		}
  	})
@@ -34,7 +45,7 @@ app.config(['$routeProvider', function($routeProvider){
  		controller: 'customer_profileCtrl',
  		resolve: {
  			customerRef: function(userService){
- 				userService.getUserData();
+ 				return userService.getUserData();
  			} 
  		}
  	})

@@ -26,15 +26,23 @@ var mongoose = require('mongoose');
 var db = 'mongodb://localhost/guideSource';
 var connection = mongoose.connection;
 
+//setting up the array of areas
+
+var area = require('./lib/controllers/areaCtrl')
+
+
+app.post('/areas', area.addArea);
+app.get('/areas', area.getArea);
+
 //Setting up Guider API to get info from DB to angular Service
 
 var Guider = require('./lib/controllers/guideCtrl')
 var Customer = require('./lib/models/customer')
 //Guiders 
-app.get('/guiders/search/:search', Guider.getGuiders);
+app.get('/guiders/:area', Guider.getGuiders);
 app.post('/guider', Guider.postGuider);
-app.get('/guiders/:id', Guider.getGuiderById);
-// app.get('/guider/:id', Guider.queryGuider);
+app.get('/guider/:id', Guider.getGuiderById);
+
 
 
 // Facebook Oauth setup//
@@ -84,7 +92,6 @@ passport.deserializeUser(function(obj, done) {
 });
 
 var requireAuth = function(req, res, next){
-	console.log('is authed?', req.user);
 	if(req.isAuthenticated()){
 		return next();
 	} else {
@@ -117,6 +124,11 @@ app.get('/api/customer', requireAuth, function(req, res){
 		res.status(200).send(req.user);
 	} 
 });
+
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/#/');
+})
 
 
 

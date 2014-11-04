@@ -7,17 +7,18 @@
 
             <!-- 1 profile -->
             <div class="col-md-6" ng-repeat="guider in guiders" >
+           
                 <section class="panel">
                     <div class="panel-body profile-information">
                        <div class="col-md-4">
                            <div class="profile-pic text-center">
-                               <img src="images/lock_thumb.jpg" alt="">
+                               <img ng-src="{{guider.photo.url}}" alt="">
                            </div>
                        </div>
                        <div class="col-md-8">
                            <div class="profile-desk">
                                <h1 ng-click="viewGuider(guider)">{{guider.name.first}} {{guider.name.last}}</h1>
-                               <span class="text-muted">Product Manager</span>
+                               <span class="text-muted">{{guider.area}}</span>
                                <p>
                                    {{guider.biography}}
                                </p>

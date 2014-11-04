@@ -21,9 +21,6 @@
     <!--header start-->
     <header class="header fixed-top">
         <div class="navbar-header">
-            <!-- <button type="button" class="navbar-toggle hr-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="fa fa-bars"></span>
-            </button> -->
 
             <!--logo start-->
             <div class="brand ">
@@ -33,27 +30,26 @@
                 </a>
             </div>
             <!--logo end-->
-            <!-- <div class="horizontal-menu navbar-collapse collapse ">
+            <div class="horizontal-menu navbar-collapse collapse ">
             </div>
+           <!--  <ul>
+                <li>Logout</li>
+            </ul> -->
             <div class="top-nav hr-top-nav">
+
                 <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder=" Search">
-                    </li> -->
-                    <!-- user login dropdown start-->
-                    <!-- <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="images/avatar1_small.jpg">
-                            <span class="username">John Doe</span>
+                
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" >
+                            <span class="username" 
+                            >{{user.name.first}} {{user.name.last}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
                             <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
                         </ul>
-                    </li> -->
+                    </li>
                     <!-- user login dropdown end -->
                 </ul>
             </div>

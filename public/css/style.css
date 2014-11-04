@@ -5773,4 +5773,12 @@ right: -1px;
     color: white;
     margin-right: 2px;
     border-right: 1px solid #2580c7;
+    width: 265px;
+    height: 38px;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    background-color: #007887;
+    color: white;
 }

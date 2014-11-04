@@ -1,6 +1,6 @@
 var app = angular.module('guide_source');
 
-app.controller('guides_listCtrl', function($scope, myService, $location){
+app.controller('guides_listCtrl', function($scope, myService, $location, guideList){
 
 	// var getServiceGuiders = function(){
 	// 	myService.getGuiders()
@@ -9,6 +9,8 @@ app.controller('guides_listCtrl', function($scope, myService, $location){
 	// 	});
 	// }
 	// getServiceGuiders();
+
+	$scope.guiders = guideList
 
 
 	$scope.viewGuider = function(guider){
