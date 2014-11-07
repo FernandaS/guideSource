@@ -149,7 +149,7 @@ app.get('/logout', function(req, res){
 
 mongoose.connect(db);
 connection.once('open', function(){
-	app.listen(port, function (){
+	app.listen(process.env.EXPRESS_PORT || port, function (){
 		console.log('Evevything is working and I am connected on port ' + port);
 	})
 });

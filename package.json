@@ -1,7 +1,6 @@
 {
   "name": "guidesource",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,5 +18,13 @@
     "mongoose": "^3.8.18",
     "passport": "^0.2.1",
     "passport-facebook": "^1.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FernandaS/guideSource.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FernandaS/guideSource/issues"
+  },
+  "homepage": "https://github.com/FernandaS/guideSource"
 }
