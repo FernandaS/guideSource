@@ -1,9 +1,24 @@
-<section id="main-content">
+<section id="`">
     <section class="wrapper">
-		<h1>Welcome {{user.name.first}} {{user.name.last}}</h1>
+		  <h2>Welcome {{user.name.first}} {{user.name.last}}</h2>
 	<!-- <div>{{user}}</div -->
-	 <hr />
- 	</section>
+	
+ 	  </section>
+
+<h3>Favorites:</h3>
+ <div class="user-heading alt gray-bg" ng-repeat="favorite in favorites">
+    <a href="#">
+      <img alt="" ng-src="{{guider.photo.url}}">
+    </a>
+      <h1>{{guider.name.first}} {{guider.name.last}}</h1>
+          <p>{{guider.area}}</p>
+
+           <button type="button" class="btn btn-info" ng-click="removerFromFave()">Delete</button>
+ </div>
+       
 
 
-</section>
+
+
+
+

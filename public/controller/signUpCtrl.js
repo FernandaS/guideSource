@@ -1,6 +1,6 @@
 var app = angular.module('guide_source');
 
-app.controller('signUpCtrl', function($scope, myService, $location, $resource, baseUrl){
+app.controller('signUpCtrl', function($scope, myService, $location){
 
 
 	$scope.fbLogin = function(){

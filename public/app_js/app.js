@@ -1,4 +1,4 @@
-var app = angular.module('guide_source', ['ngRoute', 'ngResource']);
+var app = angular.module('guide_source', ['ngRoute']);
 
 
 app.config(['$routeProvider', function($routeProvider){
@@ -6,17 +6,17 @@ app.config(['$routeProvider', function($routeProvider){
  $routeProvider
  	.when('/', {
  		templateUrl: 'views/home.html',
- 		controller: 'mainCtrl',
+ 		controller: 'homeCtrl',
  		resolve: {
  			areas: function(myService){
  				return myService.getAreas();
  			}
  		}
  	})
- 	.when('/profile', {
- 		templateUrl: 'views/profile.html',
- 		controller: 'profileCtrl'
- 	})
+ 	// .when('/profile', {
+ 	// 	templateUrl: 'views/profile.html',
+ 	// 	controller: 'profileCtrl'
+ 	// })
  	.when('/guideList/:area',{
  		templateUrl: 'views/guides_list.html',
  		controller: 'guides_listCtrl',
@@ -55,15 +55,15 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-// app.config(function($httpProvider) {
-//   $httpProvider.interceptors.push(function($q, $location) {
-//     return {
-//       'responseError': function(rejection) {
-//         if (rejection.status === 401) {
-//           $location.path('/login');
-//         }
-//         return $q.reject(rejection);
-//       }
-//     }
-//   })
-// })
+app.config(function($httpProvider) {
+  $httpProvider.interceptors.push(function($q, $location) {
+    return {
+      'responseError': function(rejection) {
+        if (rejection.status === 401) {
+          $location.path('/login');
+        }
+        return $q.reject(rejection);
+      }
+    }
+  })
+})

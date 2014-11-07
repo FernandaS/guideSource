@@ -15,9 +15,8 @@ this.getGuiders = function(area){
 this.getGuiderById = function(id){
 	return $http({
 		method: 'GET',
-		url: 'http://localhost:3333/guiders/' + id	
+		url: 'http://localhost:3333/guider/' + id	
 	}).then(function(result){
-		console.log(result.data);
 			return result.data
 	});
 };
@@ -27,7 +26,6 @@ this.getAreas = function(){
 		method: 'GET',
 		url: '/areas'
 	}).then(function(result){
-		console.log(result.data);
 		return result.data
 	})
 }
@@ -55,11 +53,12 @@ app.service('userService', function($http, $q){
 		return _currentUser;
 	}
 
-	// this.LogoutCustomer = function(){
-	// 	$http({
-	// 		method: 'GET',
-	// 		url: '/logout'
-	// 	}).then
-	// }
+	this.LogoutCustomer = function(){
+		_currentUser = '';
+		return $http({
+			method: 'GET',
+			url: '/logout'
+		})
+	}
 
 });

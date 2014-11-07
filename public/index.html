@@ -14,7 +14,7 @@
 	
 
 </head>
-<body ng-app="guide_source" class="full-width" style="">
+<body ng-app="guide_source" class="full-width" style="" ng-controller="mainCtrl">
 
 <!-- page conatiner start -->
 <section id="container" class="hr-menu">
@@ -24,30 +24,47 @@
 
             <!--logo start-->
             <div class="brand ">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="">
+                <a href="#/" class="logo">
+                    <img   src="images/logo.png" alt="">
             
                 </a>
             </div>
             <!--logo end-->
-            <div class="horizontal-menu navbar-collapse collapse ">
+            <div class="horizontal-menu navbar-collapse collapse login-bnt-alt" ng-if="!user">
+                    <ul class="nav navbar-nav">
+                      <li><a href="#/login">Login</a></li>
+                     <!--  <li class="active"><a href="#">Components</a></li> -->
+                    </ul>
             </div>
-           <!--  <ul>
-                <li>Logout</li>
-            </ul> -->
+<!-- <div class="row">
+    <div class="col-sm-6">
+        <select class="form-control m-bot15 nav-search" ng-model="guiderProperties" ng-options="area.name for area in areas">
+            <option value="">All</option>
+    </div>
+          <div class="col-sm-4">
+                <button class="btn btn-success" type="button" ng-click="searchGuider()">Go!</button> 
+            </div>
+                      
+        </select>
+
+    </div>
+        
+</div> -->
+           
             <div class="top-nav hr-top-nav">
 
-                <ul class="nav pull-right top-menu">
+
+                <ul class="nav pull-right top-menu" ng-if="user">
                 
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" >
                             <span class="username" 
-                            >{{user.name.first}} {{user.name.last}</span>
+                            >  {{user.name.first}}</span>
                             <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu extended logout">
-                            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                        <ul class="dropdown-menu extended logout" >
+                            <li><a href="#/customer"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                            <li><a ng-click="logOut()" href=""><i class="fa fa-key" ></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -65,6 +82,7 @@
 
     <!--main content end-->
 <!--footer start-->
+
 <footer class="footer-section">
     <div class="text-center">
         2014 ©GuideSource
@@ -72,27 +90,31 @@
     </div>
 </footer>
 <!--footer end-->
-</section>
+<!-- </section>
 
-</div>
+</div> -->
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.min.js"></script> -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<!-- All files for the Angular app/Serivces,Directive, Controller, Apps-->
+<!-- All files for the Angular Controller -->
 <script src="app_js/app.js"></script>
 <script src="app_js/mainCtrl.js"></script>
-<script src="app_js/services.js"></script>
 <script src="controller/profileCtrl.js"></script>
 <script src="controller/signUpCtrl.js"></script>
 <script src="controller/guides_listCtrl.js"></script>
 <script src="controller/customer_profileCtrl.js"></script>
-<script src="app_js/search_guider_directive.js"></script>
+<script src="controller/homeCtrl.js"></script>
 
+<!-- Services -->
+<script src="app_js/services.js"></script>
+
+<!-- Directives -->
+<script src="directives/search_guider_directive.js"></script>
 
 <!-- Scripts for the theme -->
 <!-- <script src="bs3/js/bootstrap.min.js"></script> -->

@@ -2331,6 +2331,7 @@ ul.inbox-pagination li {
     -webkit-border-radius:50%;
     border:10px solid #f1f2f7;
     margin-top:20px;
+
 }
 .profile-information .profile-desk {
     border-right:1px solid #ddd;
@@ -4320,7 +4321,7 @@ tr.odd.gradeX td.sorting_1,tr.even.gradeX td.sorting_1,table.display tr.even.gra
     background:#32323A;
     color:#fff;
     padding:10px 0;
-    /*position:fixed;*/
+    position: fixed;
     bottom:0;
     width:100%;
 }
@@ -5767,18 +5768,46 @@ right: -1px;
     border-radius: 4px;
     background-color: #0b6cb3;
     color: white;
+    border-color: #0b6cb3;
 }
 
 .my-fb-button {
-    color: white;
-    margin-right: 2px;
-    border-right: 1px solid #2580c7;
-    width: 265px;
-    height: 38px;
-    margin-bottom: 10px;
+   margin: 10px 0;
+}
+
+.my-fb-button :hover {
+    background-color: #0b6cb3;
+    border-color: #0b6cb3;
+
 }
 
 .submit-button {
     background-color: #007887;
     color: white;
+}
+
+.login-bnt-alt {
+    float: right;
+}
+
+.is-active {
+    color: green;
+}
+
+.not-active {
+    color: red;
+}
+
+.add-to-favorite {
+    background-color: #f78d1e;
+    color: white;
+}
+
+.nav-search {
+    width: 300px;
+    margin-top: 26px;
+}
+
+.full-width #main-content {
+    margin-bottom: -6px;
 }

@@ -1,24 +1,19 @@
 var app = angular.module('guide_source');
 
-app.controller('mainCtrl', function($scope, myService, $location, areas){
+app.controller('mainCtrl', function($scope, userService, $location){
 
 
-	$scope.searchGuider = function(){
-		var searchParam;
-		if(!$scope.guiderProperties) {
-			searchParam = 'all';
-		} else {
-			searchParam = $scope.guiderProperties.name;
-		}
-		$location.path('/guideList/' + searchParam);
 
-		
-		console.log($scope.guiderProperties)
-
-		}
-
-	$scope.areas = areas;
-	console.log(areas);
-	
-	
+$scope.$watch(userService.currentUser, function(){
+	$scope.user = userService.currentUser();
 })
+
+$scope.logOut = function(){
+	userService.LogoutCustomer()
+	.then(function(){
+		$location.path('/')
+		$scope.user = null;						
+	})
+}
+
+});

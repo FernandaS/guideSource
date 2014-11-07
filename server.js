@@ -34,6 +34,7 @@ var area = require('./lib/controllers/areaCtrl')
 app.post('/areas', area.addArea);
 app.get('/areas', area.getArea);
 
+
 //Setting up Guider API to get info from DB to angular Service
 
 var Guider = require('./lib/controllers/guideCtrl')
@@ -42,7 +43,6 @@ var Customer = require('./lib/models/customer')
 app.get('/guiders/:area', Guider.getGuiders);
 app.post('/guider', Guider.postGuider);
 app.get('/guider/:id', Guider.getGuiderById);
-
 
 
 // Facebook Oauth setup//

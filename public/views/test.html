@@ -9,7 +9,7 @@
                 <section class="panel">
                     <div class="panel-body profile-information">
                        <div class="col-md-3">
-                           <div class="profile-pic text-center main-profile-pic">
+                           <div class="profile-pic text-center">
                                <img ng-src="{{guider.photo.url}}" alt="">
                            </div>
                        </div>
@@ -25,10 +25,10 @@
                        </div>
                        <div class="col-md-3">
                            <div class="profile-statistics">
-                               <h1><i class="fa fa-circle-o" id="active" ng-class="{'is-active': active, 'not-active': !active}"></i> Active</h1>
-                               <p></p>
-                               <h1>{{guider.address.state}}</h1>
-                               <p>{{guider.address.city}}</p>
+                               <h1>1240</h1>
+                               <p>This Week Sales</p>
+                               <h1>$5,61,240</h1>
+                               <p>This Week Earn</p>
                                <ul>
                                    <!-- <li>
                                        <a href="#">
@@ -68,93 +68,80 @@
                                 </a>
                             </li>
                             <li class="" >
-                                <a data-toggle="tab" ng-click="privateInfo()" href="profile.html#contact">
-                                    Contact
+                                <a data-toggle="tab" href="profile.html#contact">
+                                    Contact <button ng-click="privateInfo()">private</button>
                                 </a>
                             </li>
                         </ul>
                     </header>
+
+
+
+
                     <div class="panel-body">
                         <div class="tab-content tasi-tab">
 
                             <div id="skills" class="tab-pane active">
                                 <div class="row">
-
-
-                                <div class="col-md-6">
-                                        <div class="prf-contacts">
-                                            <h2> Languages</h2>
-                                  <ul ng-repeat="language in languages">
-                                    <li>{{language}}
-                                  <ul>
-                                        </div>
-                                    </div>   
-
-                                    <div class="col-md-6">
-                                          
-                                            
-                                     </div>
-                                
-
+                                Hello Skills
 
                                     
                                 </div>
                              </div>   
+
                             <div id="experience" class="tab-pane">
                                 <div class="row">
-                                {{guider.skills.ownCar}}
+                                    <div class="col-md-12">
+
+                                    Hello Experience
+                                    </div>
                                 </div>
                             </div>
+</div>
 
-
-
-
-                              <div id="contact" class="tab-pane">
-                                  
-
-                          <div ng-show="!loggedIn" class="alert alert-block alert-danger fade in">
-                                <button data-dismiss="alert" class="close close-sm" type="button">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                                <strong>Oh snap!</strong> You must first login/signup in order to view contact information. <i class="fa fa-hand-o-right"></i> <a href="#/login">  Please SignUp/LogIn</a>
-                            </div>
-
-                                  <div class="row" ng-if="loggedIn">
+                            <div ng-if="loggedIn === true">
+                            <div id="contact" class="tab-pane">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="prf-contacts">
                                             <h2> <span><i class="fa fa-map-marker"></i></span> Location</h2>
                                             <div class="location-info">
-                                                <p>Address:<br>
-                                                   {{guider.area}}<br>
-                                                    {{guider.address.city}},  {{guider.address.state}} {{guider.address.zip}}</p>
-                                
+                                                <p>Postal Address<br>
+                                                    PO Box 16122 Collins Street West<br>
+                                                    Victoria 8007 Australia</p>
+                                                <p>Headquarters<br>
+                                                    121 King Street, Melbourne<br>
+                                                    Victoria 3000 Australia</p>
                                             </div>
-
-                                          <button type="button" class="btn add-to-favorite"> <i class="fa fa-plus" ng-click="addToMyList(guider)"></i>Add to Favorite</button> 
                                         </div>
                                     </div>   
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" >
                                         <div class="prf-contacts">     
                                             <h2> <span><i class="fa fa-phone"></i></span> contacts</h2>
                                             <div class="location-info">
-                                                <p>Phone    : {{guider.phone.phoneNumber}} <br>
-                                                    </p>
-                                                <p>Email        : 
-                                                {{guider.email}}<br>
-                                                    Skype       : </p>
-                                               <!--  <p>
+                                                <p>Phone    : +61 3 8376 6284 <br>
+                                                    Cell        : +61 3 8376 6284</p>
+                                                <p>Email        : david@themebucket.net<br>
+                                                    Skype       : david.rojormillan</p>
+                                                <p>
                                                     Facebook    : https://www.facebook.com/themebuckets <br>
                                                     Twitter : https://twitter.com/theme_bucket
-                                                </p> -->
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end of col 6 -->
 
                                   </div> 
+                                </div>
+                                </div>
+                                <div ng-if="loggedIn === false" class="alert alert-error">
+                                  You must first longin/Singup in order to view Guide contact Information!
+
+                                </div>
                               </div>
-                          
+                          </div>
+
                         </div>
                     </div><!-- end panel-body -->
             </section>
