@@ -49,11 +49,11 @@ app.get('/guider/:id', Guider.getGuiderById);
 passport.use(new FacebookStrategy({
 	clientID: '1488818991403933',
 	clientSecret: '030c48a4e0740160a41e004d01d0dc84',
-	callbackURL: 'http://localhost:3333/auth/facebook/callback',
+	callbackURL: process.env.FACEBOOK_CB ||  'http://localhost:3333/auth/facebook/callback' ,
 }, 
 function(accessToken, refreshToken, profile, done) {
 console.log('above customer is');
-	Customer.findOne( {facebookId: profile.id}).populate('myFaves').exec(function(err, customer){
+	Customer.findOne( {facebookId: profile.id}).exec(function(err, customer){
 	if(err){
 		res.send(err);
 	}
@@ -83,12 +83,16 @@ console.log('above customer is');
 
 
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
+passport.serializeUser(function(customer, done) {
+  done(null, customer._id);
 });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+passport.deserializeUser(function(id, done) {
+	Customer.findById(id).populate("myFaves").exec(function(err, customer){
+		done(err, customer);
+	
+	})
+  
 });
 
 var requireAuth = function(req, res, next){
@@ -149,7 +153,8 @@ app.post('/api/addFave', function(req, res){
 });
 
 app.delete('/api/faveGuider/:userId/:guiderId', function(req, res){
-	console.log(req.params)
+	console.log(req.paramsls
+		)
 	Customer.findOne({_id: req.params.userId}, function(err, customer){
 		if(err){
 			console.log(err);
