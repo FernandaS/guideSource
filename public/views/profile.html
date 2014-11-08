@@ -21,6 +21,8 @@
                                <p>{{guider.biography}}
                     
                                </p>
+                               <button ng-if="loggedIn" type="button" class="btn add-to-favorite" ng-click="addFave()"> <i class="fa fa-plus"></i>Add to Favorite</button> 
+                               <p ng-if="message">{{message}}</p>
                            </div>
                        </div>
                        <div class="col-md-3">
@@ -130,7 +132,7 @@
                                 
                                             </div>
 
-                                          <button type="button" class="btn add-to-favorite"> <i class="fa fa-plus" ng-click="addToMyList(guider)"></i>Add to Favorite</button> 
+                                          
                                         </div>
                                     </div>   
 

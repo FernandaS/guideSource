@@ -29,8 +29,16 @@ if($scope.guider.active){
 
 
 
-$scope.addToMyList = function(guider){
-	
+
+$scope.addFave = function(){
+	debugger
+	userService.addFave($scope.guider).then(function(){
+		userService.getUserData().then(function(){
+			$scope.message = "Guider was added, i like this person";
+		});
+	})
+
+
 }
 
 

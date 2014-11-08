@@ -61,4 +61,19 @@ app.service('userService', function($http, $q){
 		})
 	}
 
+	this.addFave = function(guider){
+		return $http({
+			method: "POST",
+			url: '/api/addFave',
+			data: {guider: guider, customer: _currentUser}
+		})
+	}
+
+	this.removeFromFave = function(fave){
+		return $http({
+			method: "DELETE",
+			url: "/api/faveGuider/" + _currentUser._id + '/' + fave._id
+		})
+	}
+
 });

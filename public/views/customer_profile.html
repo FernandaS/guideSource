@@ -6,14 +6,14 @@
  	  </section>
 
 <h3>Favorites:</h3>
- <div class="user-heading alt gray-bg" ng-repeat="favorite in favorites">
+ <div class="user-heading alt gray-bg" ng-repeat="favorite in user.myFaves">
     <a href="#">
-      <img alt="" ng-src="{{guider.photo.url}}">
+      <img alt="" ng-src="{{favorite.photo.url}}">
     </a>
-      <h1>{{guider.name.first}} {{guider.name.last}}</h1>
-          <p>{{guider.area}}</p>
+      <h1>{{favorite.name.first}} {{favorite.name.last}}</h1>
+          <p>{{favorite.area}}</p>
 
-           <button type="button" class="btn btn-info" ng-click="removerFromFave()">Delete</button>
+           <button type="button" class="btn btn-info" ng-click="removeFromFave(favorite)">Delete</button>
  </div>
        
 

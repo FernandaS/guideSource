@@ -53,7 +53,7 @@ passport.use(new FacebookStrategy({
 }, 
 function(accessToken, refreshToken, profile, done) {
 console.log('above customer is');
-	Customer.findOne( {facebookId: profile.id}).exec(function(err, customer){
+	Customer.findOne( {facebookId: profile.id}).populate('myFaves').exec(function(err, customer){
 	if(err){
 		res.send(err);
 	}
@@ -131,6 +131,39 @@ app.get('/logout', function(req, res){
 })
 
 
+app.post('/api/addFave', function(req, res){
+	Customer.findOne({_id: req.body.customer._id}, function(err, customer){
+		if(err){
+			console.log(err);
+		} else {
+			customer.myFaves.addToSet(req.body.guider._id);
+			customer.save(function(err){
+				if(err){
+					console.log(err);
+				}
+				res.send(customer);
+			})
+		}
+	})
+
+});
+
+app.delete('/api/faveGuider/:userId/:guiderId', function(req, res){
+	console.log(req.params)
+	Customer.findOne({_id: req.params.userId}, function(err, customer){
+		if(err){
+			console.log(err);
+		} else {
+			customer.myFaves.splice(customer.myFaves.indexOf(req.params.guiderId), 1);
+			customer.save(function(err){
+				if(err){
+					console.log(err);
+				}
+				res.send(customer);
+			})
+		}
+	});
+});
 
 
 
