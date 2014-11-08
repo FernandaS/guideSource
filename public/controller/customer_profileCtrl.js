@@ -11,7 +11,7 @@ app.controller('customer_profileCtrl', function($scope, userService){
 		})
 	}
 	
-upDateUser();
+	upDateUser();
 
 	$scope.removeFromFave = function(guider){
 		userService.removeFromFave(guider).then(function(res){

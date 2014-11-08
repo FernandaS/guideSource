@@ -43,13 +43,13 @@ var Customer = require('./lib/models/customer')
 app.get('/guiders/:area', Guider.getGuiders);
 app.post('/guider', Guider.postGuider);
 app.get('/guider/:id', Guider.getGuiderById);
-
+var facebookCB = process.env.FACEBOOK_CB ||  'http://localhost:3333/auth/facebook/callback' ;
 
 // Facebook Oauth setup//
 passport.use(new FacebookStrategy({
 	clientID: '1488818991403933',
 	clientSecret: '030c48a4e0740160a41e004d01d0dc84',
-	callbackURL: process.env.FACEBOOK_CB ||  'http://localhost:3333/auth/facebook/callback' ,
+	callbackURL: facebookCB
 }, 
 function(accessToken, refreshToken, profile, done) {
 console.log('above customer is');
