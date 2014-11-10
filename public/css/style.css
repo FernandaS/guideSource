@@ -5811,3 +5811,57 @@ right: -1px;
 .full-width #main-content {
     margin-bottom: -6px;
 }
+.blcok-of-fave {
+    width: 100%;
+}
+
+.circle-icon {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    background-color: white;
+    border-radius: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto 35px auto;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+ 
+.iconi{
+    line-height: inherit;
+    color: #f78d1e;
+    font-size: 58px;
+}
+ 
+.circle-icon:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.servicos-oferecido{
+    margin-top: 38px;
+    margin-bottom: 45px;
+
+}
+
+.centralizar {
+    text-align: center;
+}
+ 
+@media only screen and (max-width: 1023px) {
+ 
+    .home-section-2 .one-third {
+        margin-bottom: 100px;
+    }
+ 
+    .home-section-2 .one-third:last-child {
+        margin-bottom: 0;
+    }
+ 
+}
