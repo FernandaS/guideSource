@@ -14,7 +14,12 @@ var cors = require('cors')
 app.use(express.static(__dirname + '/public'));
 
 
-app.use(session({secret: "guimaraesmarquesdasilva"}));
+app.use(session({
+	secret: "guimaraesmarquesdasilva",
+	saveUninitialized: true,
+	resave: true,
+	name: 'guideSource'
+}));
 app.use(passport.initialize());
 app.use(express());
 app.use(bodyParser.json());
