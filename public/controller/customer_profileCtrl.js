@@ -1,6 +1,6 @@
 var app = angular.module('guide_source');
 
-app.controller('customer_profileCtrl', function($scope, userService){
+app.controller('customer_profileCtrl', function($scope, userService, $location){
 	
 
 	var upDateUser = function(){
@@ -20,5 +20,9 @@ app.controller('customer_profileCtrl', function($scope, userService){
 			console.log($scope.user);
 		});
 	}
+	
+	$scope.takeBackToProfile = function(guider){
+		$location.path('/profile/' + guider._id);
+	};
 	
 })

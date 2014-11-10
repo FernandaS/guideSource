@@ -3173,8 +3173,10 @@ input:focus:invalid:focus,textarea:focus:invalid:focus,select:focus:invalid:focu
 /*widget*/
 .user-heading.alt {
     display:inline-block;
-    width:100%;
+    width:30%;
     text-align:left;
+    margin: 15px 15px;
+    border-radius: 8px;
 }
 .alt.gray-bg {
     background:#474751;
@@ -5853,7 +5855,20 @@ right: -1px;
 .centralizar {
     text-align: center;
 }
+
+.fave-name {
+    color: white;
+}
+
+.delete-friend {
+ float: right;
+ margin-right: 10px;
+ margin-bottom: 10px;
+ background-color: #f78d1e;
+ border-color: #f78d1e;
+
  
+}
 @media only screen and (max-width: 1023px) {
  
     .home-section-2 .one-third {

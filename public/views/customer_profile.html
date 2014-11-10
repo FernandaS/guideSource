@@ -6,14 +6,15 @@
  	  </section>
 
 <h3>Favorites:</h3>
+ 
  <div class="user-heading alt gray-bg" ng-repeat="favorite in user.myFaves">
     <a href="#">
-      <img alt="" ng-src="{{favorite.photo.url}}">
+      <img class="fave-pic"alt="" ng-src="{{favorite.photo.url}}">
     </a>
-      <h1>{{favorite.name.first}} {{favorite.name.last}}</h1>
-          <p>{{favorite.area}}</p>
+      <h1 ng-click="takeBackToProfile(favorite)" class="fave-name">{{favorite.name.first}} {{favorite.name.last}}</h1>
+          <p class="fave-name">{{favorite.area}}</p>
 
-           <button type="button" class="btn btn-info" ng-click="removeFromFave(favorite)">Delete</button>
+           <button type="button" class="btn btn-info btn-sm delete-friend" ng-click="removeFromFave(favorite)">Delete</button>
  </div>
        
 
