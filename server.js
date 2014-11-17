@@ -9,7 +9,8 @@ var session = require('express-session');
 var port = 3333;
 var IdTypeMiddleware = require('./lib/middleware/id-type-middleware');
 var cors = require('cors')
-
+var clientID = "1498484730437359";
+var secretId = '01f0ee16f262a285bea422cb57f9bad6';
 // Connecting my Frontend under one server//
 app.use(express.static(__dirname + '/public'));
 
@@ -52,8 +53,10 @@ var facebookCB = process.env.FACEBOOK_CB ||  'http://localhost:3333/auth/faceboo
 
 // Facebook Oauth setup//
 passport.use(new FacebookStrategy({
-	clientID: '1488818991403933',
-	clientSecret: '030c48a4e0740160a41e004d01d0dc84',
+	clientID: process.env.FACEBOOK_CLIENT_ID || clientID, //'1488818991403933',
+	//test app id: 1498484730437359
+	clientSecret: process.env.FACEBOOK_SECRET || secretId,// '030c48a4e0740160a41e004d01d0dc84',
+	//test app secret: 01f0ee16f262a285bea422cb57f9bad6
 	callbackURL: facebookCB
 }, 
 function(accessToken, refreshToken, profile, done) {
