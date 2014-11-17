@@ -6,7 +6,7 @@ this.getGuiders = function(area){
 	
 	return $http({
 		method: 'GET',
-		url: 'http://localhost:3333/guiders/' + area
+		url: '/guiders/' + area
 	}).then(function(result){
 		return result.data
 	})
@@ -15,7 +15,7 @@ this.getGuiders = function(area){
 this.getGuiderById = function(id){
 	return $http({
 		method: 'GET',
-		url: 'http://localhost:3333/guider/' + id	
+		url: '/guider/' + id	
 	}).then(function(result){
 			return result.data
 	});
